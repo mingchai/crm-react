@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import ClientIndex from './components/ClientIndex';
+import ClientIndex from './components/ClientIndexPage';
 import './App.css';
+import SignInPage from './components/SignInPage';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
       </div>
 
       <ClientIndex/>
+      <SignInPage/>
       </>
     );
   }
