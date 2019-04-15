@@ -41,7 +41,7 @@ class App extends Component {
           <header className="App-header">
             <h1>New App</h1>
           </header>
-          <a href="#not-used" onClick = {this.signOut}>Logout</a>
+          <a href="#logoutLink" onClick = {this.signOut}>Logout</a>
           <Switch>
             <AuthRoute isAuth={currentUser} path="/" exact component={HomePage}/>
             <Route path="/sign_in" exact render = {routeProps => <SignInPage {...routeProps} onSignIn = {this.getCurrentUser}/>}>

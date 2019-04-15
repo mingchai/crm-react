@@ -34,11 +34,11 @@ export default class ClientIndex extends React.Component {
               {this.state.clients.map(client => (
                 <tr>
                   {/* eslint-disable-next-line */}
-                  <td><a href="#">{`${client.first_name}` + ` ${client.last_name}`}</a></td>
+                  <td><a href="#showPage">{`${client.first_name}` + ` ${client.last_name}`}</a></td>
                   <td>{client.phone_number}</td>
                   <td>{client.email}</td>
-                  <td><a href="#">Show More Details</a></td>
-                  <td><a href="#">Delete Record</a></td>
+                  <td><a href="#showPage">Show More Details</a></td>
+                  <td><a href="#deleteRecord">Delete Record</a></td>
                 </tr>
                 )
               )}
