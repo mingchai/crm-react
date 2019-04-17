@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+// import './App.css';
+
 import ClientIndex from './components/ClientIndexPage';
-import './App.css';
 import SignInPage from './components/SignInPage';
-import HomePage from "./components/HomePage";
+import HomePage from './components/HomePage';
+import SideNav from './components/SideNav';
+import AuthRoute from "../src/components/AuthRoute";
+
 import {User, Session} from './requests';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import AuthRoute from "../src/components/AuthRoute";
 
 class App extends Component {
   constructor(props){
@@ -41,7 +44,8 @@ class App extends Component {
           <header className="App-header">
             <h1>New App</h1>
           </header>
-          <a href="#logoutLink" onClick = {this.signOut}>Logout</a>
+          <SideNav/>
+            <a href="#logoutLink" onClick = {this.signOut}>Logout</a>
           <Switch>
             <AuthRoute isAuth={currentUser} path="/" exact component={HomePage}/>
             <Route path="/sign_in" exact render = {routeProps => <SignInPage {...routeProps} onSignIn = {this.getCurrentUser}/>}>
