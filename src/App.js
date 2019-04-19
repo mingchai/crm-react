@@ -43,10 +43,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
-            <h1>New App</h1>
+            <h1>Logo Will Go Here</h1>
           </header>
-          <SideNav/>
-            <a href="#logoutLink" onClick = {this.signOut}>Logout</a>
+          {/* <SideNav/>
+            <a href="#logoutLink" onClick = {this.signOut}>Logout</a> */}
           <Switch>
             <AuthRoute isAuth={currentUser} path="/" exact component={HomePage}/>
             <Route path="/sign_in" exact render = {routeProps => <SignInPage {...routeProps} onSignIn = {this.getCurrentUser}/>}>

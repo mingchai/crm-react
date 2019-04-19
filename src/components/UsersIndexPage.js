@@ -20,12 +20,23 @@ class UserIndexPage extends React.Component{
       )
     }
     return(
-      <>
-      {this.state.users.map(user =>
-        
-        <h4>{user.first_name}</h4>
-        )}
-      </>
+      <main>
+        <h1>Employee Directory</h1>
+        <table>
+          <th>Name</th>
+          <th>Email</th>
+          <tbody>
+            {this.state.users.map(user =>
+              <tr>
+              {/* eslint-disable-next-line */}
+                <td>{`${user.first_name} ` + `${user.last_name}`}</td>
+                <td>{user.email}</td>
+                <td><a href="#user-details">Show More Detail</a></td>
+              </tr>
+              )}
+          </tbody>
+        </table>
+      </main>
     )
   }
 }
