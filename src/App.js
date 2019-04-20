@@ -7,6 +7,7 @@ import HomePage from './components/HomePage';
 import SideNav from './components/SideNav';
 import AuthRoute from "../src/components/AuthRoute";
 import UsersIndexPage from './components/UsersIndexPage';
+import ClientShowPage from './components/ClientShowPage';
 
 import {Users, Session} from './requests';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
@@ -51,8 +52,9 @@ class App extends Component {
             <AuthRoute isAuth={currentUser} path="/" exact component={HomePage}/>
             <Route path="/sign_in" exact render = {routeProps => <SignInPage {...routeProps} onSignIn = {this.getCurrentUser}/>}>
             </Route>
-            <Route path="/users" render = {routeProps => <UsersIndexPage {...routeProps}/>}/>
+            <AuthRoute isAuth = {currentUser} exact path="/users" render = {routeProps => <UsersIndexPage {...routeProps}/>}/>
             <AuthRoute isAuth = {currentUser} exact path="/clients" component={ClientIndex}/>
+            <Route path="/clients/:id" render = {routeProps => <ClientShowPage {...routeProps}/>}/>
           </Switch>
         </div>
 

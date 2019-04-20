@@ -5,6 +5,11 @@ export const Clients = {
         return fetch(`${BASE_URL}/clients`,{
             credentials:"include"
         }).then(res => res.json())
+    },
+    one(id){
+      return fetch(`${BASE_URL}/clients/${id}`, {
+        credentials:"include"
+      }).then(res => res.json())
     }
 };
 
