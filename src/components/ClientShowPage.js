@@ -1,5 +1,6 @@
 import React from 'react'
 import { Clients } from '../requests';
+import GoogleMap from '../components/GoogleMap';
 
 export default class ClientShowPage extends React.Component {
   constructor(props){
@@ -34,7 +35,7 @@ export default class ClientShowPage extends React.Component {
               <td><strong>Phone Number</strong></td>
               <td>{client.phone_number}</td>
               <td><strong>Email:</strong></td>
-              <td>{client.email}</td>
+              <td colSpan={2}>{client.email}</td>
             </tr>
             <tr>
               <td><strong>Street Address:</strong></td>
@@ -46,10 +47,17 @@ export default class ClientShowPage extends React.Component {
             </tr>
             <tr>
               <td><strong>Marketing Consent?</strong></td>
-              <td>Client May Be Contacted About New Products and Offerings</td>
+              {/* ternary operator required for conditional views */}
+              {client.marketing_consent ? 
+                  <td colSpan={4}>Client May Be Contacted About New Products and Offerings</td> : 
+                  <td colSpan={4}>Client May Not Be Contacted About New Products and Offerings</td>
+              }
             </tr>
           </tbody>
         </table>
+
+      <GoogleMap lat={client.latitude} long={client.longitude} />
+        
       </main>
     )
   }
