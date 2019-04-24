@@ -26,9 +26,31 @@ export default class ClientShowPage extends React.Component {
     const {client} = this.state;
     
     return (
-      <div>
-        <h1>{client.first_name}</h1>
-      </div>
+      <main>
+        <h1>{client.first_name + ' ' + client.last_name}</h1>
+        <table>
+          <tbody>
+            <tr>
+              <td><strong>Phone Number</strong></td>
+              <td>{client.phone_number}</td>
+              <td><strong>Email:</strong></td>
+              <td>{client.email}</td>
+            </tr>
+            <tr>
+              <td><strong>Street Address:</strong></td>
+              <td>{client.street_address}</td>
+              <td><strong>City:</strong></td>
+              <td>{client.city}</td>
+              <td><strong>Postal Code:</strong></td>
+              <td>{client.postal_code}</td>
+            </tr>
+            <tr>
+              <td><strong>Marketing Consent?</strong></td>
+              <td>Client May Be Contacted About New Products and Offerings</td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
     )
   }
 }
