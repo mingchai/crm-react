@@ -10,7 +10,6 @@ export default class ClientShowPage extends React.Component {
 
   componentDidMount(){
     const id = this.props.match.params.id;
-    console.log(id);
     Clients.one(id).then(client => {
       this.setState({
         client: client
@@ -57,7 +56,14 @@ export default class ClientShowPage extends React.Component {
         </table>
 
       <GoogleMap lat={client.latitude} long={client.longitude} />
-        
+      <h4>{client.policies.map(policy => (
+
+        <>
+          <p>Policy Number: {policy.policy_number}</p>
+          <p>Annual Premium: ${policy.annual_premium}</p>
+        </>
+      )
+      )}</h4>
       </main>
     )
   }
